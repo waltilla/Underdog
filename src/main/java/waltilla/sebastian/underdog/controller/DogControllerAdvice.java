@@ -22,7 +22,7 @@ public class DogControllerAdvice extends ResponseEntityExceptionHandler {
     @ExceptionHandler(NoSuchElementException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException ex) {
-        return new ResponseEntity<>("Dog not found", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("[]", HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(InvalidUuidException.class)

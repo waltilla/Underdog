@@ -1,15 +1,16 @@
-package waltilla.sebastian.underdog.dogDb;
+package waltilla.sebastian.underdog.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import waltilla.sebastian.underdog.dogDb.entities.Dog;
+import waltilla.sebastian.underdog.repository.entities.Dog;
 import waltilla.sebastian.underdog.exeptions.DogSaveException;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class DogRepositoryImpl implements DogRepository {
@@ -23,25 +24,18 @@ public class DogRepositoryImpl implements DogRepository {
 
     @Override
     public Dog findById(String id) {
-        try {
             String sql = "SELECT * FROM dogs WHERE id = ?";
-            return jdbcTemplate.queryForObject(sql, new Object[]{id}, (rs, rowNum) ->
-                    new Dog(rs.getString("id"), rs.getString("birth_date"),
-                            rs.getString("breed"), rs.getString("name")));
-        } catch (EmptyResultDataAccessException e) {
-            throw new NoSuchElementException("No dog was found with id (uuid): " + id);
-        }
+            return jdbcTemplate.query(sql, new DogRowMapper(), id)
+                    .stream()
+                    .findFirst()
+                    .orElseThrow(() -> new NoSuchElementException("No dog found or more than one dog found!"));
     }
 
     @Override
 
     public List<Dog> getAllDogs() {
-        try {
-            String sql = "SELECT * FROM dogs";
-            return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Dog.class));
-        } catch (EmptyResultDataAccessException e) {
-            throw new NoSuchElementException("No dog was found");
-        }
+        return Optional.of(jdbcTemplate.query("SELECT * FROM dogs", new DogRowMapper()))
+                .orElseThrow(() -> new NoSuchElementException("No dog was found"));
     }
 
     public Dog saveDog(Dog dog) {
@@ -53,5 +47,4 @@ public class DogRepositoryImpl implements DogRepository {
             throw new DogSaveException("Error saving dog: " + e.getMessage());
         }
     }
-
 }

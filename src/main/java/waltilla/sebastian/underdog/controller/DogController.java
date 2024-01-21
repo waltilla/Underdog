@@ -4,8 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import waltilla.sebastian.underdog.dogDb.entities.Dog;
-import waltilla.sebastian.underdog.dogDb.entities.DogRequest;
+import waltilla.sebastian.underdog.repository.entities.Dog;
+import waltilla.sebastian.underdog.repository.entities.DogRequest;
 import waltilla.sebastian.underdog.dogService.DogService;
 
 import javax.validation.Valid;

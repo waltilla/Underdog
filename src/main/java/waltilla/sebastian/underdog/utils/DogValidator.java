@@ -1,7 +1,7 @@
 package waltilla.sebastian.underdog.utils;
 
-import waltilla.sebastian.underdog.dogDb.entities.Dog;
-import waltilla.sebastian.underdog.dogDb.entities.DogRequest;
+import waltilla.sebastian.underdog.repository.entities.Dog;
+import waltilla.sebastian.underdog.repository.entities.DogRequest;
 import waltilla.sebastian.underdog.exeptions.DogValidationException;
 import waltilla.sebastian.underdog.exeptions.InvalidUuidException;
 

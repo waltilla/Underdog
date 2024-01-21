@@ -1,7 +1,7 @@
 package waltilla.sebastian.underdog.dogService;
 
-import waltilla.sebastian.underdog.dogDb.entities.Dog;
-import waltilla.sebastian.underdog.dogDb.entities.DogRequest;
+import waltilla.sebastian.underdog.repository.entities.Dog;
+import waltilla.sebastian.underdog.repository.entities.DogRequest;
 
 import java.util.List;
 

@@ -2,10 +2,10 @@ package waltilla.sebastian.underdog.dogService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import waltilla.sebastian.underdog.dogDb.DogRepositoryImpl;
+import waltilla.sebastian.underdog.repository.DogRepositoryImpl;
 import waltilla.sebastian.underdog.utils.DogValidator;
-import waltilla.sebastian.underdog.dogDb.entities.Dog;
-import waltilla.sebastian.underdog.dogDb.entities.DogRequest;
+import waltilla.sebastian.underdog.repository.entities.Dog;
+import waltilla.sebastian.underdog.repository.entities.DogRequest;
 
 import java.util.List;
 import java.util.UUID;

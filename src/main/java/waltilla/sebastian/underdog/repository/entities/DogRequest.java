@@ -1,4 +1,4 @@
-package waltilla.sebastian.underdog.dogDb.entities;
+package waltilla.sebastian.underdog.repository.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

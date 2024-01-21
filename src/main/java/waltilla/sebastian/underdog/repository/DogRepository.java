@@ -1,10 +1,9 @@
-package waltilla.sebastian.underdog.dogDb;
+package waltilla.sebastian.underdog.repository;
 
 
-import waltilla.sebastian.underdog.dogDb.entities.Dog;
+import waltilla.sebastian.underdog.repository.entities.Dog;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface DogRepository {
 
