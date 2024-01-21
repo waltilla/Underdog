@@ -9,6 +9,7 @@ import waltilla.sebastian.underdog.dogDb.entities.DogRequest;
 import waltilla.sebastian.underdog.dogService.DogService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/dogs")
@@ -26,14 +27,14 @@ public class DogController {
         return new ResponseEntity<>(service.getDogById(uuidIdString), HttpStatus.OK);
     }
 
+    @GetMapping()
+    public ResponseEntity<List<Dog>> getAllDogs() {
+        return new ResponseEntity<>(service.getAllDogs(), HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Dog> createDog(@Valid @RequestBody DogRequest request) {
         return new ResponseEntity<>(service.createDog(request), HttpStatus.OK);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Dog> updateDog(@PathVariable String uuidIdString, @RequestBody DogRequest request) {
-        return new ResponseEntity<>(service.updateDog(uuidIdString, request), HttpStatus.OK);
     }
 
 }

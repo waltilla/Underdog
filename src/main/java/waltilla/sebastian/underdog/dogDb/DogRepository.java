@@ -3,6 +3,7 @@ package waltilla.sebastian.underdog.dogDb;
 
 import waltilla.sebastian.underdog.dogDb.entities.Dog;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface DogRepository {
@@ -11,8 +12,7 @@ public interface DogRepository {
 
     Dog saveDog(Dog dog);
 
-    Dog updateDog(Dog dog);
-
+    List<Dog> getAllDogs();
 
 
 }

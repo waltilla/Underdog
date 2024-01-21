@@ -4,5 +4,4 @@ public class DogValidationException extends RuntimeException{
     public DogValidationException(String message) {
         super(message);
     }
-
 }
