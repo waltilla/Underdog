@@ -24,7 +24,7 @@ public class DogRepositoryImpl implements DogRepository {
 
     @Override
     public Dog findById(String id) {
-            String sql = "SELECT * FROM dogs WHERE id = ?";
+            var sql = "SELECT * FROM dogs WHERE id = ?";
             return jdbcTemplate.query(sql, new DogRowMapper(), id)
                     .stream()
                     .findFirst()

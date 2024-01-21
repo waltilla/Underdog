@@ -1,4 +1,4 @@
-package waltilla.sebastian.underdog.appConfig;
+package waltilla.sebastian.underdog.appconfig;
 
 import lombok.Getter;
 import lombok.Setter;
