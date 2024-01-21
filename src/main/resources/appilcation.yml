@@ -1,0 +1,8 @@
+postgres:
+  host: ${HOST:localhost}
+  port: ${PORT:5432}
+  database: ${DATABASE:dogdb}
+  username: ${USERNAME:primea}
+  password: ${PASSWORD:primea}
+  table: ${TABLE:dog}
+  driver: ${DRIVER:org.postgresql.Driver}
