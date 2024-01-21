@@ -1,6 +1,7 @@
 package waltilla.sebastian.underdog.utils;
 
 import waltilla.sebastian.underdog.dogDb.entities.Dog;
+import waltilla.sebastian.underdog.dogDb.entities.DogRequest;
 import waltilla.sebastian.underdog.exeptions.DogValidationException;
 import waltilla.sebastian.underdog.exeptions.InvalidUuidException;
 
@@ -13,6 +14,13 @@ public class DogValidator {
     public static void validateDog(Dog dog) {
         validateIsoDateFormat(dog.getBirthDate());
         validateUuid(dog.getId());
+    }
+
+    public static DogRequest validateDogRequest(DogRequest request){
+        var validatedBirthDate = DogValidator.validateIsoDateFormat(request.getBirthDate());
+        var breed = request.getBreed() != null ? request.getBreed() : "";
+        // Name is taken care of by javax.validation, discussion about this with a more senior dude...
+        return new DogRequest(validatedBirthDate, breed, request.getName());
     }
 
     public static String validateIsoDateFormat(String dateString) {

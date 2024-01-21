@@ -32,15 +32,8 @@ public class DogServiceImpl implements DogService {
     @Override
     public Dog createDog(DogRequest request) {
         var uuid = UUID.fromString(request.toString()).toString();
-        var validatedRequest = validateDogRequest(request);
+        var validatedRequest = DogValidator.validateDogRequest(request);
         var dog = new Dog(uuid, validatedRequest.getBirthDate(), validatedRequest.getBreed(), validatedRequest.getName());
         return repository.saveDog(dog);
-    }
-
-    public DogRequest validateDogRequest(DogRequest request){
-        var validatedBirthDate = DogValidator.validateIsoDateFormat(request.getBirthDate());
-        var breed = request.getBreed() != null ? request.getBreed() : "";
-        // Name is taken care of by javax.validation, discussion about this with a more senior dude...
-        return new DogRequest(validatedBirthDate, breed, request.getName());
     }
 }

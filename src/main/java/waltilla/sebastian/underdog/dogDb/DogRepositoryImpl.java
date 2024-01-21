@@ -14,8 +14,12 @@ import java.util.NoSuchElementException;
 @Repository
 public class DogRepositoryImpl implements DogRepository {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public DogRepositoryImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public Dog findById(String id) {
