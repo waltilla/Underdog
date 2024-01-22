@@ -25,7 +25,7 @@ public class DogValidator {
 
     public static String validateIsoDateFormat(String dateString) {
         try {
-            LocalDate localDate = LocalDate.parse(dateString);
+            LocalDate localDate = LocalDate.parse(dateString);      //TODO: Problably a better way to do this ;)
             Date date = java.sql.Date.valueOf(localDate);
         } catch (Exception e) {
             throw new DogValidationException("birthDate not matching iso format: yyyy-mm-dd");

@@ -17,4 +17,4 @@ package waltilla.sebastian.underdog.appconfig;
 //}
 
 
-// If i had more time, i woudl implement this instead..
+//TODO:  If i had more time, i would implement this instead..

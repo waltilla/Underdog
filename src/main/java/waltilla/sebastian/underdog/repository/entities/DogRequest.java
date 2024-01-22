@@ -12,14 +12,12 @@ import lombok.Setter;
 @Setter
 public class DogRequest {
 
-    /*
+    /* TODO: Instead of DogValidator
     import org.jetbrains.annotations.NotNull;
     import javax.validation.constraints.NotBlank;
 
     @NotBlank(message = "birthDate may not be null or blank")
     @NotBlank(message = "name may not be null or blank")
-
-    with return string
      */
 
     private String birthDate;

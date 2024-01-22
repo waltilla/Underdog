@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 @Configuration
 public class AppConfig {
 
-    // PostgresConfiguration config; Would be used instead of hardcode values
+    //TODO:  PostgresConfiguration config; Would be used instead of hardcode values
 
     @Bean
     public DataSource dataSource() {
@@ -33,7 +33,7 @@ public class AppConfig {
         return new JdbcTemplate(dataSource);
     }
 
-    @Bean
+    @Bean   //TODO: I think this is redundant, if jdbc is configured more correct, lack of time..
     public DataSourceInitializer dataSourceInitializer(DataSource dataSource) {
         ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
         populator.addScript(new ClassPathResource("init.sql"));
