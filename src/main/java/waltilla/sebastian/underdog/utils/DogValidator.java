@@ -19,8 +19,8 @@ public class DogValidator {
     public static DogRequest validateDogRequest(DogRequest request){
         var validatedBirthDate = DogValidator.validateIsoDateFormat(request.getBirthDate());
         var breed = request.getBreed() != null ? request.getBreed() : "";
-        // Name is taken care of by javax.validation, discussion about this with a more senior dude...
-        return new DogRequest(validatedBirthDate, breed, request.getName());
+        var name = validateDogRequestName(request);
+        return new DogRequest(validatedBirthDate, breed, name);
     }
 
     public static String validateIsoDateFormat(String dateString) {
@@ -31,6 +31,14 @@ public class DogValidator {
             throw new DogValidationException("birthDate not matching iso format: yyyy-mm-dd");
         }
         return dateString;
+    }
+
+    public static String validateDogRequestName(DogRequest dog) {
+        String name = dog.getName();
+        if (name == null || name.trim().isEmpty()) {
+            throw new DogValidationException("Name is null or empty");
+        }
+        return name;
     }
 
     public static String validateUuid(String uuidString) {

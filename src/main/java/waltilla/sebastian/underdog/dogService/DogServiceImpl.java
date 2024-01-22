@@ -31,7 +31,7 @@ public class DogServiceImpl implements DogService {
 
     @Override
     public Dog createDog(DogRequest request) {
-        var uuid = UUID.fromString(request.toString()).toString();
+        var uuid = UUID.randomUUID().toString();
         var validatedRequest = DogValidator.validateDogRequest(request);
         var dog = new Dog(uuid, validatedRequest.getBirthDate(), validatedRequest.getBreed(), validatedRequest.getName());
         return repository.saveDog(dog);

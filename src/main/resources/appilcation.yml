@@ -1,8 +1,17 @@
-postgres:
-  host: ${HOST:localhost}
-  port: ${PORT:5432}
-  database: ${DATABASE:dogdb}
-  username: ${USERNAME:primea}
-  password: ${PASSWORD:primea}
-  table: ${TABLE:dog}
-  driver: ${DRIVER:org.postgresql.Driver}
+postgresConfiguration:
+    host: localhost #${HOST:localhost}
+    port: 5432 #${PORT:5432}
+    database: dogdb #${DATABASE:dogdb}
+    username: primea #${USERNAME:primea}
+    password: primea #${PASSWORD:primea}
+    table: dog # ${TABLE:dog}
+    driver: org.postgresql.Driver #${DRIVER:"org.postgresql.Driver"}
+
+
+spring:
+    sql:
+        init:
+            mode: always
+
+    jpa:
+        defer-datasource-initialization: true

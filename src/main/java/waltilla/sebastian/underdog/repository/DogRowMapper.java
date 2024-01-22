@@ -11,7 +11,7 @@ public class DogRowMapper implements RowMapper<Dog> {
     public Dog mapRow(ResultSet rs, int rowNum) throws SQLException {
         Dog dog = new Dog();
         dog.setId(rs.getString("id"));
-        dog.setBirthDate(rs.getString("birthDate"));
+        dog.setBirthDate(rs.getString("birth_date"));
         dog.setBreed(rs.getString("breed"));
         dog.setName(rs.getString("name"));
         return  dog;

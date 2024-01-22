@@ -9,13 +9,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Dog {
-
     private String id;
-
     private String  birthDate;
-
     private String breed;
-
     private String name;
-
 }

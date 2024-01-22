@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,13 +12,20 @@ import javax.validation.constraints.NotBlank;
 @Setter
 public class DogRequest {
 
+    /*
+    import org.jetbrains.annotations.NotNull;
+    import javax.validation.constraints.NotBlank;
 
     @NotBlank(message = "birthDate may not be null or blank")
-    private String  birthDate;
+    @NotBlank(message = "name may not be null or blank")
+
+    with return string
+     */
+
+    private String birthDate;
 
     private String breed;
 
-    @NotBlank(message = "name may not be null or blank")
     private String name;
 
 }
