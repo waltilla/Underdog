@@ -1,4 +1,4 @@
-package waltilla.sebastian.underdog.exeptions;
+package waltilla.sebastian.underdog.exceptions;
 
 public class InvalidUuidException extends RuntimeException {
 

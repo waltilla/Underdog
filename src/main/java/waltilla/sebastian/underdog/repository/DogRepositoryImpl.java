@@ -3,7 +3,7 @@ package waltilla.sebastian.underdog.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import waltilla.sebastian.underdog.exeptions.DogSaveException;
+import waltilla.sebastian.underdog.exceptions.DogSaveException;
 import waltilla.sebastian.underdog.repository.entities.Dog;
 
 import java.util.List;

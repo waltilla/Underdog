@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import waltilla.sebastian.underdog.exeptions.DogSaveException;
-import waltilla.sebastian.underdog.exeptions.DogValidationException;
-import waltilla.sebastian.underdog.exeptions.InvalidUuidException;
+import waltilla.sebastian.underdog.exceptions.DogSaveException;
+import waltilla.sebastian.underdog.exceptions.DogValidationException;
+import waltilla.sebastian.underdog.exceptions.InvalidUuidException;
 
 import java.util.NoSuchElementException;
 

@@ -2,8 +2,8 @@ package waltilla.sebastian.underdog.utils;
 
 import waltilla.sebastian.underdog.repository.entities.Dog;
 import waltilla.sebastian.underdog.repository.entities.DogRequest;
-import waltilla.sebastian.underdog.exeptions.DogValidationException;
-import waltilla.sebastian.underdog.exeptions.InvalidUuidException;
+import waltilla.sebastian.underdog.exceptions.DogValidationException;
+import waltilla.sebastian.underdog.exceptions.InvalidUuidException;
 
 import java.sql.Date;
 import java.time.LocalDate;
