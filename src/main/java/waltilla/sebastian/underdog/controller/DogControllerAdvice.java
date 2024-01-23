@@ -9,6 +9,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import waltilla.sebastian.underdog.exceptions.DogSaveException;
 import waltilla.sebastian.underdog.exceptions.DogValidationException;
 import waltilla.sebastian.underdog.exceptions.InvalidUuidException;
+import waltilla.sebastian.underdog.exceptions.NoDogFoundException;
 
 import java.util.NoSuchElementException;
 
@@ -19,6 +20,12 @@ public class DogControllerAdvice extends ResponseEntityExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException ex) {
         return new ResponseEntity<>("[]", HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(NoDogFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> handleNoSuchElementException(NoDogFoundException ex) {
+        return new ResponseEntity<>("[]", HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(InvalidUuidException.class)

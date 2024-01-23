@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import waltilla.sebastian.underdog.exceptions.DogSaveException;
+import waltilla.sebastian.underdog.exceptions.NoDogFoundException;
 import waltilla.sebastian.underdog.repository.entities.Dog;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class DogRepositoryImpl implements DogRepository {
         return jdbcTemplate.query(sql, new DogRowMapper(), id)
                 .stream()
                 .findFirst()
-                .orElseThrow(() -> new NoSuchElementException("No dog found!"));
+                .orElseThrow(() -> new NoDogFoundException("No dog found!"));
     }
 
     @Override
