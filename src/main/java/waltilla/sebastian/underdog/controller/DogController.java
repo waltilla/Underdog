@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import waltilla.sebastian.underdog.dogService.DogService;
 import waltilla.sebastian.underdog.repository.entities.Dog;
 import waltilla.sebastian.underdog.repository.entities.DogRequest;
+import waltilla.sebastian.underdog.dogService.DogService;
 
 import java.util.List;
 
@@ -21,8 +21,8 @@ public class DogController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Dog> getDog(@PathVariable String uuidIdString) {
-        return new ResponseEntity<>(service.getDogById(uuidIdString), HttpStatus.OK);
+    public ResponseEntity<Dog> getDog(@PathVariable String id) {
+        return new ResponseEntity<>(service.getDogById(id), HttpStatus.OK);
     }
 
     @GetMapping()

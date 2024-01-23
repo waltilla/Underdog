@@ -33,12 +33,11 @@ public class DogControllerAdvice extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
-    //TODO: With current implementation, not used yet.
+    //TODO: With current implementation, i think this is never used cause its catched in validation
     @ExceptionHandler(DogSaveException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<String> handleDogSaveException(DogSaveException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
-
 
 }

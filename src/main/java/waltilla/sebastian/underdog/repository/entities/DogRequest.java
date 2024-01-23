@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,18 +14,15 @@ import lombok.Setter;
 @Setter
 public class DogRequest {
 
-    /* TODO: Instead of DogValidator
-    import org.jetbrains.annotations.NotNull;
-    import javax.validation.constraints.NotBlank;
-
-    @NotBlank(message = "birthDate may not be null or blank")
-    @NotBlank(message = "name may not be null or blank")
+    /* TODO: Instead of DogValidator use the built in validator
+            Now notblank is only used for openAPI spec
      */
-
+    @NotBlank(message = "birthDate may not be null or blank")
     private String birthDate;
 
     private String breed;
 
+    @NotBlank(message = "name may not be null or blank")
     private String name;
 
 }

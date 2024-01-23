@@ -1,17 +1,21 @@
 version: '3.8'
 
 services:
-  postgres:
+  dogpostgres:
     image: postgres:latest
-    container_name: postgres-container
+    container_name: dogpostgres
     environment:
       POSTGRES_DB: dogdb
-      POSTGRES_USER: primea
-      POSTGRES_PASSWORD: primea
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
     ports:
       - "5432:5432"
 
 
-
+  dogapi:
+    build:
+      context: ./
+    ports:
+      - "8080:8080"
 
 

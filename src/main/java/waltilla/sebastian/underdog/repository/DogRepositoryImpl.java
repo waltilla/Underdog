@@ -20,6 +20,7 @@ public class DogRepositoryImpl implements DogRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    //TODO: @ApiResponses?
     @Override
     public Dog findById(String id) {
         var sql = "SELECT * FROM dogs WHERE id = ?";

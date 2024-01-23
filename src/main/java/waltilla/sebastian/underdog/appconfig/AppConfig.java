@@ -21,9 +21,9 @@ public class AppConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/dogdb");
-        dataSource.setUsername("primea");
-        dataSource.setPassword("primea");
+        dataSource.setUrl("jdbc:postgresql://dogpostgres:5432/dogdb");
+        dataSource.setUsername("test");
+        dataSource.setPassword("test");
         return dataSource;
     }
 
