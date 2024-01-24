@@ -20,17 +20,17 @@ public class DogController {
         this.service = service;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Dog> getDog(@PathVariable String id) {
-        return new ResponseEntity<>(service.getDogById(id), HttpStatus.OK);
+    @GetMapping(value = "/{uuid}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Dog> getDog(@PathVariable String uuid) {
+        return new ResponseEntity<>(service.getDogById(uuid), HttpStatus.OK);
     }
 
-    @GetMapping()
+    @GetMapping( produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Dog>> getAllDogs() {
         return new ResponseEntity<>(service.getAllDogs(), HttpStatus.OK);
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Dog> createDog(@RequestBody DogRequest request) {
         return new ResponseEntity<>(service.createDog(request), HttpStatus.OK);
     }
